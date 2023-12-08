@@ -60,6 +60,10 @@ function makeCalculation(obj) {
       result = obj.numOne * obj.numTwo
       break 
     case '/':
+      if (obj.numTwo === 0) {
+        result = 'Can\'t divide by 0'
+        break
+      }
       result = obj.numOne / obj.numTwo
       break
   }

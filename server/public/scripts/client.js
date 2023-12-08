@@ -41,6 +41,27 @@ let infoToCompute = {
     operator: '+'
 }
 
+// A function to change the operator in the infoToCompute obj
+function assignOperator(event, operator) {
+    event.preventDefault()
+    
+    switch (operator) {
+        case '+':
+            infoToCompute.operator = '+'
+            break
+        case '-':
+            infoToCompute.operator = '-'
+            break   
+        case '*':
+            infoToCompute.operator = '*'
+            break 
+        case '/':
+            infoToCompute.operator = '/'
+            break
+    }
+    console.log('assigned new operator', operator);
+}
+
 // ! Render
 // Client:
 //  Render on start
