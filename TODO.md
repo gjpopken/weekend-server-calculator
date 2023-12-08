@@ -1,5 +1,7 @@
  ---For Tests---
  Client: form has special ID, inputs need particular placeholders, buttons have particular innerText, two sections with particular IDs
+
+ Server: particular route names, calculations is the name of the array, sends 201 for POST method
  
  
  ! Event 
@@ -42,5 +44,8 @@
 
 
  ---Stretch---
-
+-create a check for the correct data inputs
+-DELETE request to clear out the calc history by clicking a button
+-change the interface so it looks more like a real calculator
+-change the tests so that this new one passes
  
