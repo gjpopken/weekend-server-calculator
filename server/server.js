@@ -17,7 +17,6 @@
 //     operator: '+',
 //     result: 3
 //  }]
-// ! Render
 
 
 
@@ -42,8 +41,33 @@ let calculations = []
 // POST /calculations
 app.post('/calculations', (req, res) => {
   console.log('in .post/calculations', req.body);
+  makeCalculation(req.body)
   res.sendStatus(201)
 })
+
+
+// A Function to evaluate the inputs from the user
+function makeCalculation(obj) {
+  let result = 0
+  switch (obj.operator) {
+    case '+':
+      result = obj.numOne + obj.numTwo
+      break
+    case '-':
+      result = obj.numOne - obj.numTwo
+      break
+    case '*':
+      result = obj.numOne * obj.numTwo
+      break 
+    case '/':
+      result = obj.numOne / obj.numTwo
+      break
+  }
+  // Puts the result into the input object, and pushes it into out calculation history
+  obj.result = result
+  calculations.push(obj)
+  console.log(calculations);
+}
 
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:

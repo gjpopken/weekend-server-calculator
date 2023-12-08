@@ -19,8 +19,8 @@ function compute(event) {
     // Getting the input values and assigning into their appropriate keys to POST
     const numOneInput = document.getElementById('numOne').value
     const numTwoInput = document.getElementById('numTwo').value
-    infoToCompute.numOne = numOneInput
-    infoToCompute.numTow = numTwoInput
+    infoToCompute.numOne = Number(numOneInput)
+    infoToCompute.numTwo = Number(numTwoInput)
 
     // Axios POST request
     axios({
@@ -37,7 +37,7 @@ function compute(event) {
 // A place to store the obj that will be sent to the server
 let infoToCompute = {
     numOne: 0,
-    numTow: 0,
+    numTwo: 0,
     operator: '+'
 }
 
