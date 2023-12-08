@@ -15,6 +15,10 @@ let calculations = []
 // GET /calculations
 
 // POST /calculations
+app.post('/calculations', (req, res) => {
+  console.log('in .post/calculations', req.body);
+  res.sendStatus(201)
+})
 
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
