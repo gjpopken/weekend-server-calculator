@@ -1,3 +1,28 @@
+// ! Event
+// Server:
+// receiving POST, and running the calculation in a separate function, and then pushing that array into the calc history array
+// ! State
+// Server:
+//  an array of objects that has the history of calculations
+//  data structure:
+//  [{
+//     numOne: 1,
+//     numTwo: 2,
+//     operator: '+',
+//     result: 3
+//  },
+//  {
+//     numOne: 1,
+//     numTwo: 2,
+//     operator: '+',
+//     result: 3
+//  }]
+// ! Render
+
+
+
+
+
 const express = require('express');
 const app = express();
 let PORT = process.env.PORT || 5000;
