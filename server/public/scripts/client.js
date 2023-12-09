@@ -5,26 +5,15 @@ function onStart() {
     render()
 }
 // ! Event
-// user will click a number button. This will run a function to add the number an obj specifically for display on the DOM (tempCalcs).
-// other numbers clicked before the operator will be concatenated, and displayed in the input
-// clicking an operater will concatenate the operater to the appropriate spot in the input display, and update in the infoToCompute obj
-// and switch the number inputs to the numTwo part of the obj the renders in the input display (tempCalcs)
-// when equals it hit, those numbers will be put into the infoToCompute obj, and sent to server
 
 // Function that will POST the infoToCompute array to the server to compute
 function compute(event) {
     event.preventDefault()
-    // Getting the input values and assigning into their appropriate keys to POST
-    // const numOneInput = document.getElementById('numOne').value
-    // const numTwoInput = document.getElementById('numTwo').value
-    // infoToCompute.numOne = Number(numOneInput)
-    // infoToCompute.numTwo = Number(numTwoInput)
-    
+
     //Checking to make sure that the user actually put in numbers for both, infoToCompute will default to 0
     if (tempCalcs.numOne !== '') {infoToCompute.numOne = Number(tempCalcs.numOne)}
     if (tempCalcs.numTwo !== '') {infoToCompute.numTwo = Number(tempCalcs.numTwo)}
     
-
     // Axios POST request
     axios({
         method: "POST",
@@ -181,13 +170,6 @@ function renderInputDisplay() {
     inputDisplay.value = `
     ${tempCalcs.numOne}${tempCalcs.operator}${tempCalcs.numTwo}
     `
-}
-
-// Function to clear inputs
-function clearInputs() {
-    document.getElementById('numOne').value = ''
-    document.getElementById('numTwo').value = ''
-
 }
 
 onStart()

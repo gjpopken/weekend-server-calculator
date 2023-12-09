@@ -1,7 +1,4 @@
 // ---Stretch---
-// //-create a check for the correct data inputs
-//// -DELETE request to clear out the calc history by clicking a button
-// -change the interface so it looks more like a real calculator
 // -change the tests so that this new one passes
 
 const express = require('express');
