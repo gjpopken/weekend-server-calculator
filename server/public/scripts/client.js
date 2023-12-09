@@ -5,7 +5,11 @@ function onStart() {
     render()
 }
 // ! Event
-
+// user will click a number button. This will run a function to add the number an obj specifically for display on the DOM (tempCalcs).
+// other numbers clicked before the operator will be concatenated, and displayed in the input
+// clicking an operater will concatenate the operater to the appropriate spot in the input display, and update in the infoToCompute obj
+// and switch the number inputs to the numTwo part of the obj the renders in the input display (tempCalcs)
+// when equals it hit, those numbers will be put into the infoToCompute obj, and sent to server
 
 // Function that will POST the infoToCompute array to the server to compute
 function compute(event) {
@@ -29,6 +33,19 @@ function compute(event) {
     })
 }
 
+// A function to add numbers to tempCalcs for display in the input field, called by onclick
+function insertSymbol(event, symbol) {
+    event.preventDefault()
+    //console.log('inside insertSymbol,', symbol);
+    if (currentInputNum === 1) {
+        tempCalcs.numOne += symbol
+    } else if ( currentInputNum === 2) {
+        tempCalcs.numTwo += symbol
+    }
+    renderInputDisplay()
+
+}
+
 function clearHistory(event) {
     event.preventDefault()
     axios({
@@ -49,6 +66,12 @@ let infoToCompute = {
     numTwo: 0,
     operator: '+'
 }
+let tempCalcs = {
+    numOne: '',
+    numTwo: '',
+    operator: '',
+}
+let currentInputNum = 1
 
 // A function to change the operator in the infoToCompute obj
 function assignOperator(event, operator) {
@@ -103,6 +126,15 @@ function render() {
     }).catch((err) => {
         console.log(err);
     })
+}
+
+
+// A function for rendering the tempCalcs obj to the DOM
+function renderInputDisplay() {
+    const inputDisplay = document.getElementById('showsCalculation')
+    inputDisplay.value = `
+    ${tempCalcs.numOne}${tempCalcs.operator}${tempCalcs.numTwo}
+    `
 }
 
 // Function to clear inputs
