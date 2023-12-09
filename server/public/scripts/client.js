@@ -68,8 +68,8 @@ function assignOperator(event, operator) {
 // Client:
 //  //Render on start
 //  //GET: get the data structure to render to DOM
-//  Recent RESULT displayed (the last in the array that is GETted)
-//  history minus the recent result
+// // Recent RESULT displayed (the last in the array that is GETted)
+// // history minus the recent result
 
 function render() {
     axios({
@@ -104,6 +104,13 @@ function render() {
     }).catch((err) => {
         console.log(err);
     })
+}
+
+// Function to clear inputs
+function clearInputs() {
+    document.getElementById('numOne').value = ''
+    document.getElementById('numTwo').value = ''
+
 }
 
 onStart()
