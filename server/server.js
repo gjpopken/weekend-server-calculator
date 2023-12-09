@@ -1,3 +1,9 @@
+// ---Stretch---
+// //-create a check for the correct data inputs
+// -DELETE request to clear out the calc history by clicking a button
+// -change the interface so it looks more like a real calculator
+// -change the tests so that this new one passes
+
 const express = require('express');
 const app = express();
 let PORT = process.env.PORT || 5000;
@@ -22,6 +28,12 @@ app.get('/calculations', (req, res) => {
 app.post('/calculations', (req, res) => {
   console.log('in .post/calculations', req.body);
   makeCalculation(req.body)
+  res.sendStatus(201)
+})
+
+app.delete('/history', (req, res) => {
+  console.log('in DELETE /history');
+  calculations = []
   res.sendStatus(201)
 })
 

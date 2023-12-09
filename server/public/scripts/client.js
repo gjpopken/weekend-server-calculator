@@ -28,6 +28,21 @@ function compute(event) {
         console.log(err);
     })
 }
+
+function clearHistory(event) {
+    event.preventDefault()
+    axios({
+        method: "DELETE",
+        url: "/history"
+    }).then((response) => {
+        console.log('in clear history function');
+        clearInputs()
+        render()
+    }).catch((err) => {
+        console.log(err);
+    })
+}
+
 // ! State
 let infoToCompute = {
     numOne: 0,
@@ -67,6 +82,7 @@ function render() {
         //console.log('renders. current history:', response.data);
         const arrayWithHistory = response.data
         const recentResult = document.getElementById('recentResult')
+        recentResult.innerHTML = ''
         if (arrayWithHistory[arrayWithHistory.length - 1]) {
 
             recentResult.innerHTML = `
