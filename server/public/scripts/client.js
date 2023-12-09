@@ -59,6 +59,11 @@ function clearField(event) {
         numTwo: '',
         operator: '',
     }
+    infoToCompute = {
+        numOne: 0,
+        numTwo: 0,
+        operator: '+'
+    }
     currentInputNum = 1
     renderInputDisplay()
 }
@@ -70,7 +75,7 @@ function clearHistory(event) {
         url: "/history"
     }).then((response) => {
         console.log('in clear history function');
-        clearInputs()
+        // clearInputs()
         render()
     }).catch((err) => {
         console.log(err);
