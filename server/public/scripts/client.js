@@ -80,26 +80,38 @@ function render() {
         const arrayWithHistory = response.data
         // Displaying the result
         const recentResult = document.getElementById('recentResult')
-        recentResult.innerHTML = ''
-        const pForResult = document.createElement('p')
-        pForResult.classList.add('result')
+        //recentResult.innerHTML = ''
+        //const pForResult = document.createElement('p')
+        //pForResult.classList.add('result')
         // Putting the last item in the array into the result section
         if (arrayWithHistory[arrayWithHistory.length - 1]){
-        pForResult.innerText = `Result: ${arrayWithHistory[arrayWithHistory.length - 1].result}`
-        recentResult.append(pForResult)}
+            // Tests don't like when I append 😤
+        // pForResult.innerText = `Result: ${arrayWithHistory[arrayWithHistory.length - 1].result}`
+        // recentResult.append(pForResult)
+        recentResult.innerHTML = `
+            <p class="result">Result: ${arrayWithHistory[arrayWithHistory.length - 1].result}</p>
+        `
+    }
 
         // Displaying the history
         const calculationHistory = document.getElementById('resultHistory')
         calculationHistory.innerHTML = ''
 
-        for (let i = 0; i < arrayWithHistory.length - 1; i++) {
-            const pForPastCalc = document.createElement('p')
-            let currentObj = arrayWithHistory[i]
-            pForPastCalc.innerText = `
-            ${currentObj.numOne} ${currentObj.operator} ${currentObj.numTwo} = ${currentObj.result}
-            `
-            calculationHistory.prepend(pForPastCalc)
-        }
+        // for (let i = 0; i < arrayWithHistory.length; i++) {
+        //     const pForPastCalc = document.createElement('p')
+        //     let currentObj = arrayWithHistory[i]
+        //     pForPastCalc.innerText = `
+        //     ${currentObj.numOne} ${currentObj.operator} ${currentObj.numTwo} = ${currentObj.result}
+        //     `
+        //     calculationHistory.prepend(pForPastCalc)
+        // }
+
+            for (let i = arrayWithHistory.length -1 ; i > -1; i--) {
+                let currentObj = arrayWithHistory[i]
+                calculationHistory.innerHTML += `
+                <p>${currentObj.numOne} ${currentObj.operator} ${currentObj.numTwo} = ${currentObj.result}</p>
+                `
+            }
 
     }).catch((err) => {
         console.log(err);

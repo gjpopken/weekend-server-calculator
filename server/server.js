@@ -55,7 +55,7 @@ function makeCalculation(obj) {
   let result = 0
   switch (obj.operator) {
     case '+':
-      result = obj.numOne + obj.numTwo
+      result = Number(obj.numOne) + Number(obj.numTwo)
       break
     case '-':
       result = obj.numOne - obj.numTwo
