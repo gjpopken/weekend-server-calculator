@@ -43,9 +43,21 @@ function insertSymbol(event, symbol) {
     event.preventDefault()
     //console.log('inside insertSymbol,', symbol);
     if (currentInputNum === 1) {
-        tempCalcs.numOne += symbol
+        // we can't input more than 1 full stop
+        if (symbol !== '.') {
+            tempCalcs.numOne += symbol
+        } else if (!tempCalcs.numOne.includes('.')) {
+            console.log('doesnt have the dot already');
+            tempCalcs.numOne += symbol
+        }
+        
     } else if ( currentInputNum === 2) {
-        tempCalcs.numTwo += symbol
+        if (symbol !== '.') {
+            tempCalcs.numTwo += symbol
+        } else if (!tempCalcs.numTwo.includes('.')) {
+            console.log('doesnt have the dot already');
+            tempCalcs.numTwo += symbol
+        }
     }
     renderInputDisplay()
 
