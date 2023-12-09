@@ -1,0 +1,30 @@
+#calcButtons {
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 1px solid green;
+    width: 200px;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+}
+
+#calcButtons button {
+    width: 50px;
+    height: 50px;
+}
+
+button {
+    background-color: red;
+    color: aliceblue;
+}
+
+button:hover {
+    background-color: green;
+    cursor: pointer;
+}
+
+#recentResult {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}

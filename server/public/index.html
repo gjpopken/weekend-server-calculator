@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Server-Side Calculator</title>    
-    <script defer src="scripts/axios.js"></script>
-    <script defer src="scripts/client.js" charset="utf-8"></script>
-  </head>
-  <body>
-    <h1>Server-Side Calculator</h1>
 
-    <form data-testid="calculator">
+<head>
+  <meta charset="utf-8">
+  <title>Server-Side Calculator</title>
+  <link rel="stylesheet" href="./scripts/styles.css">
+  <script defer src="scripts/axios.js"></script>
+  <script defer src="scripts/client.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <h1>Server-Side Calculator</h1>
+
+  <form>
+    <input id="showsCalculation" type="text" disabled>
+    <button class="clear" onclick="clearField(event)">C</button>
+    <div id="calcButtons">
+      <button onclick="insertSymbol(event, '9')">9</button>
+      <button onclick="insertSymbol(event, '8')">8</button>
+      <button onclick="insertSymbol(event, '7')">7</button>
+      <button onclick="assignOperator(event, '+')">+</button>
+      <button onclick="insertSymbol(event, '6')">6</button>
+      <button onclick="insertSymbol(event, '5')">5</button>
+      <button onclick="insertSymbol(event, '4')">4</button>
+      <button onclick="assignOperator(event, '-')">-</button>
+      <button onclick="insertSymbol(event, '3')">3</button>
+      <button onclick="insertSymbol(event, '2')">2</button>
+      <button onclick="insertSymbol(event, '1')">1</button>
+      <button onclick="assignOperator(event, '*')">*</button>
+      <button onclick="insertSymbol(event, '0')">0</button>
+      <button onclick="insertSymbol(event, '.')">.</button>
+      <button onclick="compute(event)">=</button>
+      <button onclick="assignOperator(event, '/')">/</button>
+    </div>
+  </form>
+  
+  <!-- <form data-testid="calculator">
       <input placeholder="First Number" id="numOne" type="number">
       <button onclick="assignOperator(event, '+')">+</button>
       <button onclick="assignOperator(event, '-')">-</button>
@@ -19,16 +45,17 @@
       <button onclick="compute(event)">=</button>
       <button onclick="assignOperator(event, '+'), clearInputs()">C</button>
       <button onclick="clearHistory(event)">Clear History</button>
-    </form>
+    </form> -->
 
-    <section data-testid="recentResult" id="recentResult">
-      <!-- The most recent calculation result goes here. -->
-    </section>
+  <section data-testid="recentResult" id="recentResult">
+    <!-- The most recent calculation result goes here. -->
+  </section>
+  <button onclick="clearHistory(event)">Clear History</button>
+  <section data-testid="resultHistory" id="resultHistory">
+    <!-- The list of calculation results goes here. -->
+  </section>
+</body>
 
-    <section data-testid="resultHistory" id="resultHistory">
-      <!-- The list of calculation results goes here. -->
-    </section>
-  </body>
 </html>
 
 <!-- https://www.w3schools.com/css/css_grid.asp for GRID items -->
