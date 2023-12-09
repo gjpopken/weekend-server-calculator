@@ -15,10 +15,15 @@ function onStart() {
 function compute(event) {
     event.preventDefault()
     // Getting the input values and assigning into their appropriate keys to POST
-    const numOneInput = document.getElementById('numOne').value
-    const numTwoInput = document.getElementById('numTwo').value
-    infoToCompute.numOne = Number(numOneInput)
-    infoToCompute.numTwo = Number(numTwoInput)
+    // const numOneInput = document.getElementById('numOne').value
+    // const numTwoInput = document.getElementById('numTwo').value
+    // infoToCompute.numOne = Number(numOneInput)
+    // infoToCompute.numTwo = Number(numTwoInput)
+    
+    //Checking to make sure that the user actually put in numbers for both, infoToCompute will default to 0
+    if (tempCalcs.numOne !== '') {infoToCompute.numOne = Number(tempCalcs.numOne)}
+    if (tempCalcs.numTwo !== '') {infoToCompute.numTwo = Number(tempCalcs.numTwo)}
+    
 
     // Axios POST request
     axios({
@@ -80,15 +85,27 @@ function assignOperator(event, operator) {
     switch (operator) {
         case '+':
             infoToCompute.operator = '+'
+            tempCalcs.operator = '+'
+            currentInputNum = 2
+            renderInputDisplay()
             break
         case '-':
             infoToCompute.operator = '-'
+            tempCalcs.operator = '-'
+            currentInputNum = 2
+            renderInputDisplay()
             break
         case '*':
             infoToCompute.operator = '*'
+            tempCalcs.operator = '*'
+            currentInputNum = 2
+            renderInputDisplay()
             break
         case '/':
             infoToCompute.operator = '/'
+            tempCalcs.operator = '/'
+            currentInputNum = 2
+            renderInputDisplay()
             break
     }
     console.log('assigned new operator', operator);
