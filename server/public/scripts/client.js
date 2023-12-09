@@ -51,6 +51,18 @@ function insertSymbol(event, symbol) {
 
 }
 
+// New function to clear the input display and start a new calculation
+function clearField(event) {
+    event.preventDefault()
+    tempCalcs = {
+        numOne: '',
+        numTwo: '',
+        operator: '',
+    }
+    currentInputNum = 1
+    renderInputDisplay()
+}
+
 function clearHistory(event) {
     event.preventDefault()
     axios({
