@@ -1,9 +1,9 @@
 // ! Event
 // Server:
-// receiving POST, and running the calculation in a separate function, and then pushing that array into the calc history array
+// //receiving POST, and running the calculation in a separate function, and then pushing that array into the calc history array
 // ! State
 // Server:
-//  an array of objects that has the history of calculations
+// // an array of objects that has the history of calculations
 //  data structure:
 //  [{
 //     numOne: 1,
@@ -37,6 +37,10 @@ let calculations = []
 // Here's a wonderful place to make some routes:
 
 // GET /calculations
+app.get('/calculations', (req, res) => {
+  console.log('inside GET/calculations');
+  res.send(calculations)
+})
 
 // POST /calculations
 app.post('/calculations', (req, res) => {
