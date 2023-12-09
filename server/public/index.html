@@ -14,7 +14,7 @@
 
   <form>
     <input id="showsCalculation" type="text" disabled>
-    <button onclick="clearField(event)">C</button>
+    <button class="clear" onclick="clearField(event)">C</button>
     <div id="calcButtons">
       <button onclick="insertSymbol(event, '9')">9</button>
       <button onclick="insertSymbol(event, '8')">8</button>
@@ -34,7 +34,7 @@
       <button onclick="assignOperator(event, '/')">/</button>
     </div>
   </form>
-  <button onclick="clearHistory(event)">Clear History</button>
+  
   <!-- <form data-testid="calculator">
       <input placeholder="First Number" id="numOne" type="number">
       <button onclick="assignOperator(event, '+')">+</button>
@@ -50,7 +50,7 @@
   <section data-testid="recentResult" id="recentResult">
     <!-- The most recent calculation result goes here. -->
   </section>
-
+  <button onclick="clearHistory(event)">Clear History</button>
   <section data-testid="resultHistory" id="resultHistory">
     <!-- The list of calculation results goes here. -->
   </section>

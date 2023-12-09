@@ -165,7 +165,7 @@ function render() {
         for (let i = arrayWithHistory.length - 1; i > -1; i--) {
             let currentObj = arrayWithHistory[i]
             calculationHistory.innerHTML += `
-                <p>${currentObj.numOne} ${currentObj.operator} ${currentObj.numTwo} = ${currentObj.result}</p>
+                <p>🧪 ${currentObj.numOne} ${currentObj.operator} ${currentObj.numTwo} = ${currentObj.result}</p>
                 `
         }
 
