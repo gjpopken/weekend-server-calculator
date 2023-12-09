@@ -1,26 +1,8 @@
-// ! Event
-// Server:
-// //receiving POST, and running the calculation in a separate function, and then pushing that array into the calc history array
-// ! State
-// Server:
-// // an array of objects that has the history of calculations
-//  data structure:
-//  [{
-//     numOne: 1,
-//     numTwo: 2,
-//     operator: '+',
-//     result: 3
-//  },
-//  {
-//     numOne: 1,
-//     numTwo: 2,
-//     operator: '+',
-//     result: 3
-//  }]
-
-
-
-
+// ---Stretch---
+// //-create a check for the correct data inputs
+//// -DELETE request to clear out the calc history by clicking a button
+// -change the interface so it looks more like a real calculator
+// -change the tests so that this new one passes
 
 const express = require('express');
 const app = express();
@@ -46,6 +28,12 @@ app.get('/calculations', (req, res) => {
 app.post('/calculations', (req, res) => {
   console.log('in .post/calculations', req.body);
   makeCalculation(req.body)
+  res.sendStatus(201)
+})
+
+app.delete('/history', (req, res) => {
+  console.log('in DELETE /history');
+  calculations = []
   res.sendStatus(201)
 })
 
